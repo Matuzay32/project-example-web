@@ -73,7 +73,7 @@ export default function Cards({ item }) {
               backgroundColor: 'Teal',
             }}
           >
-            Click
+            {item?.button}
           </Button>
         </Stack>
       </Box>
