@@ -9,12 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@react-three/drei": "^9.87.0",
+    "@react-three/fiber": "^8.14.5",
+    "framer-motion": "^10.16.4",
+    "i": "^0.3.7",
+    "jotai": "^2.4.3",
+    "leva": "^0.9.35",
+    "next": "13.5.4",
+    "npm": "^10.2.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.4"
+    "three": "^0.157.0",
+    "valtio": "^1.11.2"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "13.5.4"
+    "eslint-config-next": "13.5.4",
+    "next-transpile-modules": "^10.0.1"
   }
 }
