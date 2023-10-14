@@ -27,7 +27,11 @@ export default function Home() {
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Titles texto={['Code', 'Dreamers']}></Titles>
+          <Titles
+            texto={['Code', 'Dreamers']}
+            justifyContent={'center'}
+            alignItems={'flex-start'}
+          ></Titles>
           <Text color={'gray.500'}>
             We are a technology company dedicated to providing fast and simple
             solutions. Our focus is simple yet powerful: to be effective and

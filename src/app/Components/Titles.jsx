@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Box, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
 
-export default function Titles({ texto = ['Default Text', 'Default Text2'] }) {
+export default function Titles({
+  texto = ['Default Text', 'Default Text2'],
+  alignItems = 'center',
+  justifyContent = 'center',
+}) {
   const [texto1, texto2] = texto;
   const headingVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -24,11 +28,11 @@ export default function Titles({ texto = ['Default Text', 'Default Text2'] }) {
   };
   return (
     <Stack
-      mt={100}
+      mt={10}
       flex={1}
       spacing={{ base: 5, md: 10 }}
-      alignItems={'center'}
-      justifyContent={'center'}
+      alignItems={alignItems}
+      justifyContent={justifyContent}
     >
       <motion.div initial="hidden" animate="visible" variants={headingVariants}>
         <Heading
