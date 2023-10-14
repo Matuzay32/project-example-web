@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Titles from './Titles';
 
 const overviewList = [
   {
@@ -59,41 +60,8 @@ const HowWork = () => {
       py={20}
       mt={10}
     >
-      <Stack
-        mt={10}
-        mb={10}
-        flex={1}
-        spacing={{ base: 5, md: 10 }}
-        alignItems={'center'}
-        justifyContent={'center'}
-      >
-        <Heading
-          lineHeight={1.1}
-          fontWeight={600}
-          fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
-        >
-          <Text
-            as={'span'}
-            position={'relative'}
-            _after={{
-              content: "''",
-              width: 'full',
-              height: '30%',
-              position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'teal.400',
-              zIndex: -1,
-            }}
-          >
-            How we
-          </Text>
-          <br />
-          <Text as={'span'} color={'teal.400'}>
-            Work{' '}
-          </Text>
-        </Heading>
-      </Stack>
+      <Titles texto={['How we', 'Work']}></Titles>
+
       <Stack
         direction={{ base: 'column', md: 'row' }}
         spacing={{ base: 0, md: 3 }}
