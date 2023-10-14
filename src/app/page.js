@@ -4,12 +4,13 @@ import { Box, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
 import { Canvas } from '@react-three/fiber';
 import Hero from './Components/Hero';
 import Cards from './Components/Cards';
+import HowWork from './Components/HowWork';
 import { data } from '../app/constants/cards.js';
 
 export default function Page() {
   return (
     <>
-      <Box height="100vh" width="100%">
+      <Box height="100vh" width="100%" p={2}>
         <Hero></Hero>
         <Stack
           mt={10}
@@ -51,6 +52,8 @@ export default function Page() {
             return <Cards item={item} key={i}></Cards>;
           })}
         </SimpleGrid>
+
+        <HowWork></HowWork>
       </Box>
     </>
   );
