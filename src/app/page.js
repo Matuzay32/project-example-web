@@ -38,7 +38,7 @@ export default function Page() {
         <Hero></Hero>
         <Titles texto={['Connect', 'With Us']}></Titles>
 
-        <SimpleGrid columns={{ sm: 1, md: 2, lg: 2 }} spacing={2}>
+        <SimpleGrid columns={{ sm: 1, md: 1, lg: 1 }} spacing={2}>
           {data?.map((item, i) => {
             return <Cards item={item} key={i}></Cards>;
           })}
