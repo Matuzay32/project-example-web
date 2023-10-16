@@ -17,7 +17,7 @@ export default function Titles({
       transition: {
         duration: 0.8,
         when: 'beforeChildren',
-        staggerChildren: 0.2, // Controla la animación secuencial
+        staggerChildren: 0.2,
       },
     },
   };
@@ -26,6 +26,11 @@ export default function Titles({
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <Stack
       mt={10}
@@ -33,8 +38,13 @@ export default function Titles({
       spacing={{ base: 5, md: 10 }}
       alignItems={alignItems}
       justifyContent={justifyContent}
+      ref={ref}
     >
-      <motion.div initial="hidden" animate="visible" variants={headingVariants}>
+      <motion.div
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+        variants={headingVariants}
+      >
         <Heading
           lineHeight={1.1}
           fontWeight={600}
