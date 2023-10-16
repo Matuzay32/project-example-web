@@ -112,9 +112,9 @@ export default function Cards({ item }) {
           </ModalHeader>
           <ModalBody>
             <Box
-              border={'1px solid #38B2AC              '}
+              // border={'1px solid #38B2AC              '}
               rounded={'3xl'}
-              shadow={'base'}
+              shadow={'dark-lg'}
               p={5}
             >
               <Text color="gray.500" fontSize="lg">
