@@ -26,7 +26,7 @@ export const Cursor3d = () => {
     xRotation: -1.1,
     yRotation: -1.7,
     zRotation: Math.PI / 2,
-    gradient: 1,
+    gradient: 0.13,
   });
 
   const { xRotation, yRotation, zRotation, gradient } = controlValues;
@@ -62,8 +62,8 @@ function Cursor(props) {
     <mesh {...props} geometry={nodes.Cube.geometry}>
       <LayerMaterial ref={ref} toneMapped={false}>
         <Depth
-          colorA="#ff0080"
-          colorB="black"
+          colorA="#285E61"
+          colorB="#285E61"
           alpha={1}
           mode="normal"
           near={0.5 * props.gradient}
@@ -71,8 +71,8 @@ function Cursor(props) {
           origin={[0, 0, 0]}
         />
         <Depth
-          colorA="blue"
-          colorB="#f7b955"
+          colorA="#81E6D9"
+          colorB="#38B2AC"
           alpha={1}
           mode="add"
           near={2 * props.gradient}
@@ -81,7 +81,7 @@ function Cursor(props) {
         />
         <Depth
           colorA="green"
-          colorB="#f7b955"
+          colorB="#234E52"
           alpha={1}
           mode="add"
           near={3 * props.gradient}
