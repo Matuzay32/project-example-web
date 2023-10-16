@@ -1,6 +1,14 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Bounds, Edges, Html } from '@react-three/drei';
+import {
+  useGLTF,
+  Bounds,
+  Edges,
+  Html,
+  PresentationControls,
+  Environment,
+  ContactShadows,
+} from '@react-three/drei';
 import { LayerMaterial, Depth, Fresnel } from 'lamina';
 import { useControls } from 'leva';
 import {
@@ -34,11 +42,28 @@ export const Cursor3d = () => {
     <Canvas
       orthographic
       dpr={[1, 2]}
-      camera={{ position: [0, 0, 10], zoom: 300 }}
+      camera={{
+        position: [0, 0, 10],
+        rotation: [
+          0,
+          0,
+          Math.PI,
+        ] /* Ajusta la rotación para apuntar hacia abajo */,
+        zoom: 300,
+      }}
     >
       <group rotation={[xRotation, yRotation, zRotation]}>
         <Bounds fit clip observe margin={3.25}>
-          <Cursor scale={[0.5, 1, 0.5]} gradient={gradient} />
+          {/* <Cursor scale={[0.5, 1, 0.5]} gradient={gradient} */}
+          <PresentationControls
+            config={{ mass: 2, tension: 300 }}
+            snap={{ mass: 4, tension: 1500 }}
+            rotation={[0, 0.3, 0]}
+            polar={[-Math.PI / 3, Math.PI / 3]}
+            azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+          >
+            <Cursor scale={[0.5, 1, 0.5]} gradient={gradient} />
+          </PresentationControls>
         </Bounds>
       </group>
     </Canvas>
