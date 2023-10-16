@@ -5,8 +5,15 @@ import { Environment, useGLTF, ContactShadows } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a as three } from '@react-spring/three';
 import { a as web } from '@react-spring/web';
+import { useControls } from 'leva';
 
 function Model({ open, hinge, ...props }) {
+  //   let { metalness, roughness } = useControls({
+  //     metalness: { value: 0.9, min: 0, max: 1, step: 0.01 },
+  //     roughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
+  //   });
+  let metalness = 0.46;
+  let roughness = 0.13;
   const group = useRef();
   // Load model
   const { nodes, materials } = useGLTF('/mac-draco.glb');
@@ -26,7 +33,7 @@ function Model({ open, hinge, ...props }) {
     );
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
-      open ? Math.sin(t / 10) / 4 : 0,
+      open ? Math.sin(t / 10) / 8 : 0,
       0.1
     );
     group.current.rotation.z = THREE.MathUtils.lerp(
@@ -55,7 +62,12 @@ function Model({ open, hinge, ...props }) {
           <mesh
             material={materials.aluminium}
             geometry={nodes['Cube008'].geometry}
-          />
+          >
+            <meshStandardMaterial
+              metalness={metalness} // Ajusta la metalidad según tus necesidades (puedes probar diferentes valores)
+              roughness={roughness} // Ajusta la rugosidad según tus necesidades
+            />
+          </mesh>
           <mesh
             material={materials['matte.001']}
             geometry={nodes['Cube008_1'].geometry}
@@ -96,7 +108,7 @@ export default function Laptop3d() {
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) });
   return (
-    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }}>
+    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -25], fov: 35 }}>
       <three.pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
         <group
@@ -108,9 +120,9 @@ export default function Laptop3d() {
         <Environment preset="city" />
       </Suspense>
       <ContactShadows
-        position={[0, -4.5, 0]}
+        position={[0, -3.5, 0]}
         opacity={0.4}
-        scale={20}
+        scale={130}
         blur={1.75}
         far={4.5}
       />
