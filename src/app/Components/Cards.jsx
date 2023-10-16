@@ -16,6 +16,7 @@ import {
   ModalFooter,
   useDisclosure,
 } from '@chakra-ui/react';
+import { FaTimes, FaCog } from 'react-icons/fa'; // Importa el icono de cerrar y el icono de engranaje (o lámpara)
 
 export default function Cards({ item }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,6 +54,7 @@ export default function Cards({ item }) {
               fontSize={'2xl'}
               fontFamily={'body'}
             >
+              {/* Icono de engranaje (o lámpara) */}
               {item.title}
             </Heading>
             <Text color={'gray.500'}>{item.description}</Text>
@@ -83,17 +85,49 @@ export default function Cards({ item }) {
           </Stack>
         </Box>
       </Center>
-
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{item.modal.title}</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent
+          isCentered={true} // Agregar esta línea
+          borderRadius="10px"
+          bg="white"
+          boxShadow="lg"
+          maxW="600px"
+        >
+          <ModalHeader
+            fontSize="2xl"
+            color="teal.500"
+            borderBottom="1px solid teal"
+            pb={4}
+            display="flex"
+            alignItems="center" // Centra el texto verticalmente con el icono
+            justifyContent="space-between" // Espaciado entre el título y el icono
+          >
+            <Text w={'50%'} color={'teal'} fontSize={60}>
+              <FaCog />
+            </Text>
+            {item.modal.title}
+            <FaTimes onClick={onClose} style={{ cursor: 'pointer' }} />{' '}
+            {/* Icono de cerrar */}
+          </ModalHeader>
           <ModalBody>
-            <Text>{item.modal.content}</Text>
+            <Box
+              border={'1px solid #38B2AC              '}
+              rounded={'3xl'}
+              shadow={'base'}
+              p={5}
+            >
+              <Text color="gray.500" fontSize="lg">
+                {item.modal.content}
+              </Text>
+            </Box>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="teal" mr={3} onClick={onClose}>
+            <Button
+              colorScheme="teal"
+              _hover={{ bg: 'teal.600' }}
+              onClick={onClose}
+            >
               Close
             </Button>
           </ModalFooter>
