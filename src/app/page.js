@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer';
 import { Box, Text, SimpleGrid, Stack, Heading } from '@chakra-ui/react';
 import { Canvas } from '@react-three/fiber';
 import Hero from './Components/Hero';
-import Hero2 from './Components/Hero2';
 import Cards from './Components/Cards';
 import Cursor3d from './Components/Cursor3d';
 import BeautifulCard from './Components/BeautifulCard';
@@ -36,7 +35,7 @@ export default function Page() {
   return (
     <>
       <Box height="100vh" width="100%" p={2}>
-        <Hero2></Hero2>
+        <Hero></Hero>
         <Titles texto={['Connect', 'With Us']}></Titles>
 
         <SimpleGrid columns={{ sm: 1, md: 1, lg: 1 }} spacing={2}>

@@ -114,7 +114,7 @@ export default function Cards({ item }) {
             <Box
               // border={'1px solid #38B2AC              '}
               rounded={'3xl'}
-              shadow={'dark-lg'}
+              shadow={'lg'}
               p={5}
             >
               <Text color="gray.500" fontSize="lg">

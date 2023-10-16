@@ -96,12 +96,8 @@ export default function Laptop3d() {
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) });
   return (
-    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -20], fov: 35 }}>
-      <three.pointLight
-        position={[10, 10, 10]}
-        intensity={1.5}
-        color={props.open.to([0, 1], ['#f0f0f0', '#d25578'])}
-      />
+    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }}>
+      <three.pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
         <group
           rotation={[0, Math.PI, 0]}
