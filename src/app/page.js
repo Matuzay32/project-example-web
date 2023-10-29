@@ -8,6 +8,7 @@ import Hero from './Components/Hero';
 import Cards from './Components/Cards';
 import Cursor3d from './Components/Cursor3d';
 import BeautifulCard from './Components/BeautifulCard';
+import Particles from './Components/Particles';
 
 import HowWork from './Components/HowWork';
 import Titles from './Components/Titles';
@@ -34,6 +35,8 @@ export default function Page() {
   };
   return (
     <>
+      <Particles></Particles>
+
       <Box height="100vh" width="100%" p={2}>
         <Hero></Hero>
         <Titles texto={['Connect', 'With Us']}></Titles>
