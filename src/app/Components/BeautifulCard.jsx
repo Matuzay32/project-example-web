@@ -47,6 +47,7 @@ const BeautifulCard = () => {
             transition={{ duration: 1 }}
           >
             <Box
+              backdropFilter={'blur(10px)'}
               ref={ref}
               borderRadius="lg"
               overflow="hidden"

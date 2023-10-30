@@ -53,6 +53,7 @@ const HowWork = () => {
 
   return (
     <Container
+      backdropFilter={'blur(10px)'}
       borderRadius={'30px'}
       border={'1px solid Gray.50'}
       boxShadow={'dark-lg'}

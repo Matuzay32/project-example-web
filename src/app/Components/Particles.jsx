@@ -4,6 +4,12 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Instances, Instance, Environment } from '@react-three/drei';
 import { EffectComposer, N8AO, TiltShift2 } from '@react-three/postprocessing';
 
+const geometries = [
+  <tetrahedronGeometry args={[0.45]} />,
+  <sphereGeometry args={[0.45, 64, 64]} />,
+  // Agrega más geometrías según tus necesidades
+];
+
 const particles = Array.from({ length: 10 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.01, 0.75),
@@ -14,7 +20,7 @@ const particles = Array.from({ length: 10 }, () => ({
 
 export default function Particles() {
   const canvasStyle = {
-    position: 'fixed', // Cambiamos a 'fixed' para que sea un fondo fijo
+    position: 'fixed',
     zIndex: -100,
     top: 0,
     left: 0,
@@ -23,7 +29,7 @@ export default function Particles() {
   };
   return (
     <Canvas
-      style={canvasStyle} // Aplicamos estilos CSS para que ocupe toda la pantalla
+      style={canvasStyle}
       shadows
       dpr={[1, 2]}
       gl={{ antialias: false }}
@@ -37,7 +43,7 @@ export default function Particles() {
         <N8AO aoRadius={6} intensity={2} color="red" />
         <TiltShift2 blur={0.1} />
       </EffectComposer>
-      <Environment preset="city" /> {/* Agregamos un entorno */}
+      <Environment preset="city" />
     </Canvas>
   );
 }
@@ -53,6 +59,10 @@ function Bubbles() {
         delta
       ))
   );
+
+  const randomGeometry =
+    geometries[Math.floor(Math.random() * geometries.length)];
+
   return (
     <Instances
       limit={particles.length}
@@ -61,7 +71,8 @@ function Bubbles() {
       receiveShadow
       position={[0, 2.5, 0]}
     >
-      <sphereGeometry args={[0.45, 64, 64]} />
+      {randomGeometry}
+
       <meshStandardMaterial roughness={0.1} metalness={0} color="teal" />
       {particles.map((data, i) => (
         <Bubble key={i} {...data} />
