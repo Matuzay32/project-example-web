@@ -1,16 +1,12 @@
 import { MathUtils } from 'three';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Instances, Instance, Environment } from '@react-three/drei';
 import { EffectComposer, N8AO, TiltShift2 } from '@react-three/postprocessing';
 
-const geometries = [
-  <tetrahedronGeometry args={[0.45]} />,
-  <sphereGeometry args={[0.45, 64, 64]} />,
-  // Agrega más geometrías según tus necesidades
-];
+const geometries = [<tetrahedronGeometry args={[0.45]} />];
 
-const particles = Array.from({ length: 10 }, () => ({
+const particles = Array.from({ length: 5 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.01, 0.75),
   xFactor: MathUtils.randFloatSpread(40),
@@ -27,6 +23,7 @@ export default function Particles() {
     width: '100%',
     height: '100vh',
   };
+
   return (
     <Canvas
       style={canvasStyle}
@@ -50,6 +47,27 @@ export default function Particles() {
 
 function Bubbles() {
   const ref = useRef();
+  const [currentGeometry, setCurrentGeometry] = useState(geometries[0]);
+  const [geometryChangeTimer, setGeometryChangeTimer] = useState(0);
+
+  // Utiliza un efecto para cambiar la geometría cada 5 segundos
+  useEffect(() => {
+    const geometryChangeInterval = setInterval(() => {
+      setGeometryChangeTimer((prevTimer) => prevTimer + 1);
+
+      if (geometryChangeTimer % 5 === 0) {
+        // Cambia la geometría al azar
+        const randomIndex = Math.floor(Math.random() * geometries.length);
+        setCurrentGeometry(geometries[randomIndex]);
+      }
+    }, 1000); // Cambia cada 1 segundo
+
+    return () => {
+      // Limpia el intervalo cuando el componente se desmonta
+      clearInterval(geometryChangeInterval);
+    };
+  }, [geometryChangeTimer]);
+
   useFrame(
     (state, delta) =>
       void (ref.current.rotation.y = MathUtils.damp(
@@ -60,9 +78,6 @@ function Bubbles() {
       ))
   );
 
-  const randomGeometry =
-    geometries[Math.floor(Math.random() * geometries.length)];
-
   return (
     <Instances
       limit={particles.length}
@@ -71,8 +86,7 @@ function Bubbles() {
       receiveShadow
       position={[0, 2.5, 0]}
     >
-      {randomGeometry}
-
+      {currentGeometry}
       <meshStandardMaterial roughness={0.1} metalness={0} color="teal" />
       {particles.map((data, i) => (
         <Bubble key={i} {...data} />
