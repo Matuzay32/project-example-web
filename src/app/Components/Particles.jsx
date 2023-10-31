@@ -33,13 +33,13 @@ export default function Particles() {
       camera={{ fov: 50, position: [0, 0, 20] }}
     >
       <color attach="background" args={['#f0f0f0']} />
-      <ambientLight intensity={1.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} castShadow />
+      <ambientLight intensity={1.3} />
+      <pointLight position={[10, 10, 10]} intensity={1} />
       <Bubbles />
-      <EffectComposer disableNormalPass>
+      {/* <EffectComposer disableNormalPass>
         <N8AO aoRadius={6} intensity={2} color="red" />
         <TiltShift2 blur={0.1} />
-      </EffectComposer>
+      </EffectComposer> */}
       <Environment preset="city" />
     </Canvas>
   );
