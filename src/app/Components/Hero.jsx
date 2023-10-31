@@ -92,7 +92,7 @@ export default function Home() {
           <Box
             p={3}
             position={'relative'}
-            height={'500px'}
+            height={['300px', '300px', '500px']}
             rounded={'2xl'}
             // boxShadow={'2xl'}
             width={'full'}
