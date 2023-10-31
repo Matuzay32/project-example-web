@@ -38,7 +38,12 @@ const BeautifulCard = () => {
 
   return (
     <Box p={5} w={'full'}>
-      <SimpleGrid columns={{ sm: 1, md: 3, lg: 3 }} spacing={2}>
+      <Stack
+        direction={['column', 'column', 'row']}
+        justifyContent={'center'}
+        alignItems={'center'}
+        spacing={2}
+      >
         {paymentMethods.map((method, index) => (
           <motion.div
             key={index}
@@ -76,7 +81,7 @@ const BeautifulCard = () => {
             </Box>
           </motion.div>
         ))}
-      </SimpleGrid>
+      </Stack>
     </Box>
   );
 };
