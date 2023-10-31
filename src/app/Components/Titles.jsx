@@ -10,12 +10,12 @@ export default function Titles({
 }) {
   const [texto1, texto2] = texto;
   const headingVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.2,
         when: 'beforeChildren',
         staggerChildren: 0.2,
       },

@@ -84,7 +84,7 @@ const HowWork = () => {
                   ? { opacity: 1, y: 0 }
                   : { opacity: 0, y: -20 }
               }
-              transition={{ duration: 1, delay: index * 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.5 }}
             >
               <Box ref={ref}>
                 <HStack spacing={2}>
@@ -114,7 +114,7 @@ const HowWork = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.5 }}
           >
             <Image
               boxSize={{ base: 'auto', md: 'lg' }}
