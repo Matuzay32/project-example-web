@@ -6,7 +6,7 @@ import { EffectComposer, N8AO, TiltShift2 } from '@react-three/postprocessing';
 
 const geometries = [<tetrahedronGeometry args={[0.45]} />];
 
-const particles = Array.from({ length: 5 }, () => ({
+const particles = Array.from({ length: 3 }, () => ({
   factor: MathUtils.randInt(20, 100),
   speed: MathUtils.randFloat(0.01, 0.75),
   xFactor: MathUtils.randFloatSpread(40),
@@ -87,7 +87,7 @@ function Bubbles() {
       position={[0, 2.5, 0]}
     >
       {currentGeometry}
-      <meshStandardMaterial roughness={0.1} metalness={0} color="teal" />
+      <meshStandardMaterial roughness={0.1} metalness={0} color="#B2F5EA" />
       {particles.map((data, i) => (
         <Bubble key={i} {...data} />
       ))}

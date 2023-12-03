@@ -51,7 +51,7 @@ export default function Home() {
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: 'column', sm: 'row' }}
           >
-            <Button
+            {/* <Button
               rounded={'full'}
               size={'lg'}
               fontWeight={'normal'}
@@ -70,7 +70,7 @@ export default function Home() {
               leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}
             >
               How It Works
-            </Button>
+            </Button> */}
           </Stack>
         </Stack>
         <Flex
