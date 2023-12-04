@@ -144,9 +144,7 @@ const Header = (props) => {
                 color: '#4FD1C5',
                 transform: 'scale(1.2)', // Escala del 110% en hover
                 transition: 'all 0.3s ease',
-                // background:
-                //   colorMode === 'light' ? 'rgba(0, 0, 0, 0.7)' : '#463d3de0',
-                // color: '#fff',
+                borderBottom: '5px solid #38B2AC', // Agrega el subrayado
               }}
               onClick={() => setShow(false)}
             >
