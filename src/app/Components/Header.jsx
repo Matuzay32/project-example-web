@@ -109,12 +109,12 @@ const Header = (props) => {
               />
             </Box> */}
 
-            <Box bg={'red'} display={{ sm: 'block', md: 'none' }}>
+            <Box display={{ sm: 'block', md: 'none' }}>
               <Image
                 boxSize={{ base: 'auto', md: 'lg' }}
                 w={'50px'}
                 h={'50px'}
-                src="/planet.jpeg"
+                src="/planet.png"
                 rounded="lg"
               />
             </Box>
@@ -174,12 +174,12 @@ const Header = (props) => {
           />
         </Box> */}
 
-        <Box bg={'red'} display={['none', 'none', 'block']}>
+        <Box display={['none', 'none', 'block']}>
           <Image
             h={'80px'}
             w={'80px'}
             objectFit="contain"
-            src="/planet.jpeg"
+            src="/planet.png"
             rounded="lg"
           />
         </Box>
