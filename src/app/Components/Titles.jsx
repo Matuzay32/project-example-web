@@ -9,19 +9,31 @@ export default function Titles({
   justifyContent = 'center',
 }) {
   const [texto1, texto2] = texto;
+  // const headingVariants = {
+  //   hidden: { opacity: 0, y: -10 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: {
+  //       duration: 0.2,
+  //       when: 'beforeChildren',
+  //       staggerChildren: 0.2,
+  //     },
+  //   },
+  // };
+
   const headingVariants = {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.2,
+        duration: 0.8,
         when: 'beforeChildren',
-        staggerChildren: 0.2,
+        staggerChildren: 0.2, // Controla la animación secuencial
       },
     },
   };
-
   const textVariants = {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
@@ -50,7 +62,7 @@ export default function Titles({
           fontWeight={600}
           fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
         >
-          <motion.div variants={textVariants}>
+          <motion.div variants={headingVariants}>
             <Text
               as={'span'}
               position={'relative'}
@@ -69,7 +81,7 @@ export default function Titles({
             </Text>
           </motion.div>
           <br />
-          <motion.div variants={textVariants}>
+          <motion.div variants={headingVariants}>
             <Text as={'span'} color={'teal.400'}>
               {texto2}
             </Text>
