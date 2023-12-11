@@ -26,6 +26,11 @@ export default function MissionVision() {
       content: `At Code Dreamer, we are committed to bringing your dreams to life and turning your ideas into outstanding digital solutions. Our mission is to be your trusted partner throughout the entire process, from conception to implementation. We strive to provide comprehensive guidance, ensuring total, functional, and scalable integration. Our greatest strength lies in our dedication to completing each project in the best possible way, demonstrating excellence in every line of code and every detail.`,
     },
   ]);
+
+  const maxContentHeight = visionMission.reduce((maxHeight, item) => {
+    const contentHeight = item.content.split('\n').length * 2.5; // Adjust multiplier as needed
+    return Math.max(maxHeight, contentHeight);
+  }, 0);
   return (
     <Container maxW={'7xl'}>
       <Stack
@@ -38,6 +43,8 @@ export default function MissionVision() {
         {visionMission.map((item, index, arr) => {
           return (
             <Stack
+              h={`500px`} // Set the height to the maximum content height
+              overflowY="auto" // Enable vertical scrolling if content exceeds the height
               key={`${index}-${item.text1}`}
               display={'flex'}
               justify={'center'}
