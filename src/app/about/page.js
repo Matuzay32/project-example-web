@@ -11,6 +11,8 @@ import {
   Container,
 } from '@chakra-ui/react';
 
+import Planet from '../Components/Planet';
+
 import Titles from '../Components/Titles';
 import MissionVision from '../Components/MissionVision';
 
@@ -34,6 +36,7 @@ export default function about() {
   };
   return (
     <Container maxW={'full'} w={'100'} h={'100vh'} centerContent pt={'10rem'}>
+      <Planet></Planet>
       <MissionVision></MissionVision>
     </Container>
   );
