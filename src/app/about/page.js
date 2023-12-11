@@ -35,7 +35,7 @@ export default function about() {
     visible: { opacity: 1, y: 0 },
   };
   return (
-    <Container maxW={'full'} w={'100'} h={'100vh'} centerContent pt={'10rem'}>
+    <Container maxW={'full'} w={'full'} h={'100vh'} centerContent pt={'10rem'}>
       <Planet></Planet>
       <MissionVision></MissionVision>
     </Container>

@@ -5,6 +5,7 @@ import { useGLTF, MeshDistortMaterial, Shadow } from '@react-three/drei';
 import Text from './Text';
 import state from '../state';
 import { Box } from '@chakra-ui/react';
+import { relative } from 'path';
 
 function Model(props) {
   const group = useRef();
@@ -32,7 +33,7 @@ function Model(props) {
       <group ref={group}>
         <mesh geometry={nodes.geo.geometry} castShadow receiveShadow>
           <MeshDistortMaterial
-            color="#ffffff"
+            color="#4FD1C5"
             flatShading
             roughness={1}
             metalness={0.5}
@@ -44,40 +45,23 @@ function Model(props) {
           <meshBasicMaterial wireframe />
         </mesh>
       </group>
-      <group position={[1.25, -0.5, 0]}>
-        <Text
-          position={[0, 0, 0]}
-          fontSize={0.07}
-          lineHeight={1}
-          letterSpacing={-0.05}
-        >
-          03
-          <meshBasicMaterial color="#cccccc" toneMapped={false} />
-        </Text>
-        <Text
-          bold
-          position={[-0.01, -0.1, 0]}
-          fontSize={0.1}
-          lineHeight={1}
-          letterSpacing={-0.05}
-          color="black"
-        >
-          {`Poimandres,\nThe vision of Hermes`}
-        </Text>
-      </group>
+      <group position={[1.25, -0.5, 0]}></group>
       <Shadow
         ref={shadow}
         opacity={0.3}
         rotation-x={-Math.PI / 2}
-        position={[0, -1.51, 0]}
+        position={[0, -2.51, 0]}
       />
     </group>
   );
 }
 export default function Planet() {
   return (
-    <Box width={'full'} height={'full'}>
-      <Canvas camera={{ position: [0, 0, 2] }}>
+    <Box width={'full'} minH={'100vh'} height={'100vh'} pos={'relative'}>
+      <Canvas
+        style={{ width: '100%', height: '100vh' }} // Ajusta el tamaño del Canvas aquí
+        camera={{ position: [0, 0, 2.2] }}
+      >
         <Suspense fallback={null}>
           <Model />
           <ambientLight intensity={0.7} />
