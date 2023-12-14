@@ -15,6 +15,7 @@ import Planet from '../Components/Planet';
 
 import Titles from '../Components/Titles';
 import MissionVision from '../Components/MissionVision';
+import CoreValues from '../Components/CoreValues';
 
 export default function about() {
   const headingVariants = {
@@ -36,6 +37,7 @@ export default function about() {
   };
   return (
     <Container maxW={'full'} w={'full'} h={'100vh'} centerContent pt={'10rem'}>
+      <CoreValues></CoreValues>
       <Planet></Planet>
       <MissionVision></MissionVision>
     </Container>

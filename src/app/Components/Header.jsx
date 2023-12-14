@@ -50,6 +50,7 @@ const Header = (props) => {
     <Container maxW="7xl" p={1}>
       <Flex
         boxShadow={'0px 0px 1px #181818'}
+        backdropFilter="blur(10px)"
         borderRadius="2xl"
         as="nav"
         align="center"
@@ -63,7 +64,6 @@ const Header = (props) => {
         top="0"
         left="0"
         right="0"
-        backdropFilter="blur(10px)"
         backgroundColor={
           colorMode === 'light'
             ? 'rgba(255, 255, 255, 0.8)'
