@@ -29,6 +29,7 @@ export const Cursor3d = () => {
   //   zRotation: { value: Math.PI / 2, min: -Math.PI, max: Math.PI },
   //   gradient: { value: 0.7, min: 0, max: 1 },
   // });
+  //Cambio
 
   const [controlValues, setControlValues] = useState({
     xRotation: -1.1,
